@@ -1,6 +1,6 @@
 # aggregators-depoyment
 
-This is ansible code to delpoy multiple aggegators in a cluster, with FQDN and a single interface  
+This is ansible code to deploy multiple aggregators in a cluster, with FQDN and a single interface  
 
 Tested on:  
 Centra_version:39.2.4
