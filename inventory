@@ -1,0 +1,9 @@
+[Aggr]
+10.38.83.19 server_hostname="gc-aggregator-3" server_ip1="10.38.83.19" subnet1="255.255.0.0" CLUSTER_ID="Cluster1" AGG_FQDN="gc-aggregator-cluster1" DEFAULT_GW="10.38.0.254" DNS_SERVER="10.38.5.254 8.8.8.8" MGMT_IP="10.38.83.11" SCEP_IP="10.38.83.11:443"
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user="root"
+ansible_password="GuardR00t111"
+new_root_password="4fUBngqZcj7o"
+sec_comm_pass="GuardR00t111"

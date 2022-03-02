@@ -1,0 +1,28 @@
+# Deploy Aggregators via Ansible
+---
+- hosts: Aggr
+  gather_facts: false
+  tasks:
+    - name: set up authorized keys for root user
+      authorized_key:
+        user: root
+        state: present
+        manage_dir: yes
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+    - name: Change password for root
+      user:
+        name: root
+        password: "{{ new_root_password | password_hash('sha512') }}"
+    - name: Set hostname
+      hostname:
+        name: "{{ server_hostname }}"
+      register: command_result
+      ignore_errors: yes
+    - name: Copy a new "guardicore_setup.conf" and backup old
+      template:
+        src: agg-guardicore_setup.conf
+        dest: /etc/guardicore/guardicore_setup.conf
+        backup: yes
+    - name: run "aggr-setup -q"
+      command: aggr-setup -q
+      register: aggr-setup
